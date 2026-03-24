@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack & Easter — History of the Painted Egg</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.svg">
+
+<!-- Primary Meta -->
+<meta name="title" content="Jack & Easter — History of the Painted Egg">
+<meta name="description" content="From ancient Egyptians to Pop Art — the colorful history of the painted Easter egg. Interactive timeline in EN, SLO & DE.">
+<meta name="keywords" content="Easter, Easter egg, history, pop art, Velika noč, pisanica, jack, Ostern">
+<meta name="author" content="Jack & Easter">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourusername.github.io/easter-jack/">
+<meta property="og:title" content="Jack & Easter — History of the Painted Egg 🥚">
+<meta property="og:description" content="From ancient Egyptians to Warhol's Pop Art — the wild, colorful history of the painted Easter egg. Interactive timeline in 3 languages!">
+<meta property="og:image" content="https://yourusername.github.io/easter-jack/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sl_SI">
+<meta property="og:locale:alternate" content="de_DE">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jack & Easter — History of the Painted Egg 🥚">
+<meta name="twitter:description" content="From ancient Egyptians to Warhol's Pop Art — the wild history of the Easter egg. Interactive EN/SLO/DE!">
+<meta name="twitter:image" content="https://yourusername.github.io/easter-jack/og-image.png">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#FFE800; font-family:'Bangers',cursive; overflow-x:hidden; cursor:crosshair; }
+  .halftone-bg { position:fixed; top:0; left:0; width:100%; height:100%; background-image:radial-gradient(circle,#FF3366 1.5px,transparent 1.5px); background-size:24px 24px; opacity:0.15; pointer-events:none; z-index:0; }
+  .lang-bar { position:sticky; top:0; z-index:100; display:flex; justify-content:center; gap:8px; padding:12px 16px; background:#FFE800; border-bottom:4px solid #1a1a1a; }
+  .lang-btn { font-family:'Bangers',cursive; font-size:22px; letter-spacing:2px; padding:6px 20px; border:4px solid #1a1a1a; border-radius:8px; background:white; cursor:pointer; transition:transform 0.15s,box-shadow 0.15s; box-shadow:4px 4px 0 #1a1a1a; }
+  .lang-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 #1a1a1a; }
+  .lang-btn.active { background:#FF3366; color:white; transform:translate(-2px,-2px); box-shadow:6px 6px 0 #1a1a1a; }
+  .page { position:relative; z-index:1; max-width:900px; margin:0 auto; padding:20px; }
+  .hero { text-align:center; padding:32px 20px 16px; }
+  .hero-title { font-family:'Bangers',cursive; font-size:clamp(44px,10vw,100px); color:#1a1a1a; text-shadow:4px 4px 0 #FF3366,8px 8px 0 #1a1a1a; letter-spacing:4px; line-height:1; animation:titlePop 0.6s cubic-bezier(0.175,0.885,0.32,1.275) both; }
+  .hero-sub { font-family:'Bangers',cursive; font-size:clamp(16px,4vw,28px); color:#FF3366; letter-spacing:6px; margin-top:8px; animation:fadeSlide 0.5s 0.2s both; }
+  .speech-bubble { display:inline-block; background:white; border:4px solid #1a1a1a; border-radius:30px; padding:10px 24px; margin:14px auto; position:relative; font-family:'Comic Neue',cursive; font-size:16px; color:#1a1a1a; box-shadow:5px 5px 0 #1a1a1a; animation:fadeSlide 0.5s 0.3s both; }
+  .speech-bubble::after { content:''; position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); border:10px solid transparent; border-top-color:white; z-index:2; }
+  .speech-bubble::before { content:''; position:absolute; bottom:-26px; left:50%; transform:translateX(-50%); border:12px solid transparent; border-top-color:#1a1a1a; z-index:1; }
+  .boom { font-family:'Bangers',cursive; font-size:clamp(50px,13vw,120px); color:#FF3366; text-shadow:4px 4px 0 #1a1a1a; letter-spacing:4px; animation:boom 0.8s cubic-bezier(0.175,0.885,0.32,1.275) both,float 3s ease-in-out infinite; display:block; text-align:center; margin:16px 0; }
+  .timeline { display:flex; flex-direction:column; gap:0; margin-top:32px; }
+  .era { display:grid; grid-template-columns:110px 1fr; gap:0; animation:fadeSlide 0.5s both; }
+  .era:nth-child(1){animation-delay:0.1s} .era:nth-child(2){animation-delay:0.2s} .era:nth-child(3){animation-delay:0.3s} .era:nth-child(4){animation-delay:0.4s} .era:nth-child(5){animation-delay:0.5s} .era:nth-child(6){animation-delay:0.6s}
+  .era-year { display:flex; align-items:center; justify-content:flex-end; padding-right:20px; position:relative; }
+  .year-badge { background:#1a1a1a; color:#FFE800; font-family:'Bangers',cursive; font-size:18px; padding:5px 10px; border-radius:6px; letter-spacing:2px; white-space:nowrap; z-index:2; position:relative; }
+  .era-line { position:absolute; right:0; top:0; bottom:0; width:4px; background:#1a1a1a; z-index:1; }
+  .era-line::after { content:''; position:absolute; top:50%; right:-8px; transform:translateY(-50%); width:20px; height:20px; background:#FF3366; border:4px solid #1a1a1a; border-radius:50%; z-index:3; }
+  .era-content { padding:14px 0 14px 28px; border-left:4px solid #1a1a1a; margin-left:-4px; }
+  .era-card { background:white; border:4px solid #1a1a1a; border-radius:16px; padding:18px 22px; position:relative; overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; cursor:pointer; }
+  .era-card:hover { transform:translate(-4px,-4px) rotate(-1deg); box-shadow:10px 10px 0 #1a1a1a; }
+  .era-card.blue{background:#00BFFF} .era-card.pink{background:#FF69B4} .era-card.lime{background:#ADFF2F} .era-card.orange{background:#FF6B35} .era-card.purple{background:#DA70D6} .era-card.cyan{background:#40E0D0}
+  .dots-overlay { position:absolute; top:0; right:0; width:80px; height:80px; background-image:radial-gradient(circle,rgba(0,0,0,0.2) 2px,transparent 2px); background-size:12px 12px; border-radius:0 12px 0 80px; }
+  .era-card h3 { font-family:'Bangers',cursive; font-size:26px; color:#1a1a1a; letter-spacing:2px; margin-bottom:4px; line-height:1.1; }
+  .era-card p { font-family:'Comic Neue',cursive; font-size:14px; color:#1a1a1a; line-height:1.5; font-weight:700; max-width:88%; }
+  .era-card .tag { display:inline-block; background:#1a1a1a; color:#FFE800; font-family:'Bangers',cursive; font-size:13px; padding:2px 10px; border-radius:4px; margin-bottom:6px; letter-spacing:1px; }
+  .jack-svg { position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:44px; filter:drop-shadow(3px 3px 0 #1a1a1a); transition:transform 0.2s; }
+  .era-card:hover .jack-svg { transform:translateY(-50%) scale(1.3) rotate(15deg); }
+  .footer-section { background:#FF3366; border:4px solid #1a1a1a; border-radius:24px; padding:28px; margin-top:40px; margin-bottom:20px; text-align:center; position:relative; overflow:hidden; box-shadow:8px 8px 0 #1a1a1a; }
+  .footer-section h2 { font-family:'Bangers',cursive; font-size:44px; color:white; text-shadow:3px 3px 0 #1a1a1a; letter-spacing:3px; }
+  .footer-section p { font-family:'Comic Neue',cursive; font-size:17px; color:white; font-weight:700; margin-top:10px; max-width:600px; margin-left:auto; margin-right:auto; }
+  .egg-row { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:16px; }
+  .egg { font-size:38px; display:inline-block; animation:wobble 2s ease-in-out infinite; filter:drop-shadow(2px 2px 0 #1a1a1a); }
+  .egg:nth-child(2){animation-delay:0.3s} .egg:nth-child(3){animation-delay:0.6s} .egg:nth-child(4){animation-delay:0.9s} .egg:nth-child(5){animation-delay:1.2s}
+  .action-word { position:fixed; font-family:'Bangers',cursive; font-size:80px; color:#FFE800; text-shadow:3px 3px 0 #1a1a1a; pointer-events:none; opacity:0; z-index:9999; letter-spacing:3px; transform:translate(-50%,-50%); }
+  @keyframes titlePop { 0%{transform:scale(0) rotate(-10deg);opacity:0} 100%{transform:scale(1) rotate(0);opacity:1} }
+  @keyframes fadeSlide { 0%{transform:translateY(30px);opacity:0} 100%{transform:translateY(0);opacity:1} }
+  @keyframes boom { 0%{transform:scale(0) rotate(-15deg)} 60%{transform:scale(1.2) rotate(5deg)} 100%{transform:scale(1) rotate(0)} }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-12px) rotate(3deg)} }
+  @keyframes wobble { 0%,100%{transform:rotate(-5deg) scale(1)} 50%{transform:rotate(8deg) scale(1.1)} }
+  @keyframes splat { 0%{transform:translate(-50%,-50%) scale(0) rotate(0);opacity:1} 60%{transform:translate(-50%,-50%) scale(1.4) rotate(20deg);opacity:1} 100%{transform:translate(-50%,-50%) scale(1.2) rotate(25deg);opacity:0} }
+  @media(max-width:600px){ .era{grid-template-columns:72px 1fr} .year-badge{font-size:13px;padding:3px 6px} .era-card h3{font-size:18px} .era-card p{font-size:12px} .jack-svg{font-size:30px;right:6px} }
+</style>
+</head>
+<body>
+<div class="halftone-bg"></div>
+<div class="action-word" id="actionWord">POW!</div>
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en',this)">🇬🇧 EN</button>
+  <button class="lang-btn" onclick="setLang('sl',this)">🇸🇮 SLO</button>
+  <button class="lang-btn" onclick="setLang('de',this)">🇩🇪 DE</button>
+</div>
+<div class="page">
+  <div class="hero">
+    <div class="hero-title" id="heroTitle"></div>
+    <div class="hero-sub" id="heroSub"></div>
+    <div class="speech-bubble" id="heroBubble"></div>
+  </div>
+  <div class="boom" id="boomWord"></div>
+  <div class="timeline" id="timeline"></div>
+  <div class="footer-section">
+    <div style="position:absolute;top:0;right:0;width:120px;height:120px;border-radius:0 20px 0 100px;background-image:radial-gradient(circle,rgba(255,255,255,0.3) 2px,transparent 2px);background-size:12px 12px;"></div>
+    <h2 id="footerTitle"></h2>
+    <p id="footerText"></p>
+    <div class="egg-row">
+      <span class="egg">🥚</span><span class="egg">🎨</span><span class="egg">🐣</span><span class="egg">🌸</span><span class="egg">💥</span>
+    </div>
+  </div>
+</div>
+<script>
+const T={en:{heroTitle:"JACK &<br>EASTER",heroSub:"★ History of the Painted Egg ★",heroBubble:'"From ancient times to pop art — click the cards!"',boom:"CRACK!",footerTitle:"🎉 HAPPY EASTER! 🎉",footerText:"Jack has come a long way — from ancient Egyptians to pop art galleries. Paint your egg with soul!",eras:[{year:"5000 BC",color:"blue",icon:"🥚",tag:"ORIGINS",title:"First egg!",text:"Ancient Egyptians, Persians and Chinese exchanged painted eggs thousands of years before Christ. A symbol of spring and new life!"},{year:"4th cent.",color:"pink",icon:"✝️",tag:"CHRISTIANITY",title:"Red eggs!",text:"Christians adopt the tradition. Red symbolizes the blood of Christ. Legend says Mary Magdalene brought eggs to the tomb!"},{year:"1290",color:"lime",icon:"👑",tag:"ROYALTY",title:"Eggs for the king!",text:"English King Edward I orders 450 gilded eggs as gifts for his courtiers. Jack becomes a luxury!"},{year:"1883",color:"orange",icon:"💎",tag:"FABERGÉ",title:"Golden eggs!",text:"Tsar Alexander III orders the first Fabergé egg for the Tsarina. Peter Carl Fabergé creates 50 imperial eggs — each hiding a surprise!"},{year:"1960s",color:"purple",icon:"🎨",tag:"POP ART",title:"Warhol & Jack!",text:"Pop art revolution! Andy Warhol would surely have made a series of painted eggs. Bold colors, halftone dots — Jack in pop art style!"},{year:"TODAY",color:"cyan",icon:"🌈",tag:"MODERN",title:"Jack 2.0!",text:"AI generated eggs, 3D printed Easter eggs, NFT eggs... The tradition lives on — just more colorful than ever!"}]},sl:{heroTitle:"JACK &<br>VELIKA NOČ",heroSub:"★ Zgodovina Pobarvanega Jajca ★",heroBubble:'"Od pradavnine do pop arta — klikni kartice!"',boom:"CRACK!",footerTitle:"🎉 VESELA VELIKA NOČ! 🎉",footerText:"Jack je prehodil dolgo pot — od starih Egipčanov do pop art galerij. Pobarvaj svoje jajce z dušo!",eras:[{year:"5000 pr.n.š.",color:"blue",icon:"🥚",tag:"PRAZAČETEK",title:"Prvo jajce!",text:"Stari Egipčani, Perzijci in Kitajci so si že tisočletja pred Kristusom podarjali pisana jajca. Simbol pomladi in novega življenja!"},{year:"4. stol.",color:"pink",icon:"✝️",tag:"KRŠČANSTVO",title:"Rdeča jajca!",text:"Kristjani prevzamejo tradicijo. Rdeča barva simbolizira kri Kristusovo. Legenda pravi: Marija Magdalena je prinesla jajca k grobu!"},{year:"1290",color:"lime",icon:"👑",tag:"KRALJEVSKO",title:"Jajca za kralja!",text:"Angleški kralj Edvard I. naroči 450 zlatih, pozlačenih jajc za darila dvorjanom. Jack postane luksuz!"},{year:"1883",color:"orange",icon:"💎",tag:"FABERGÉ",title:"Zlata jajca!",text:"Car Aleksander III. naroči prvo Fabergé jajce za carico. Peter Carl Fabergé ustvari 50 imperialnih jajc — vsako skriva presenečenje!"},{year:"1960s",color:"purple",icon:"🎨",tag:"POP ART",title:"Warhol & Jack!",text:"Pop art revolucija! Andy Warhol bi zagotovo naredil serijo pisanc. Boldne barve, halftone pike — to je Jack v pop art stilu!"},{year:"DANES",color:"cyan",icon:"🌈",tag:"MODERNO",title:"Jack 2.0!",text:"AI generirana jajca, 3D print pisanice, NFT jajca... Tradicija živi naprej — samo bolj colorful kot kdajkoli!"}]},de:{heroTitle:"JACK &<br>OSTERN",heroSub:"★ Geschichte des bemalten Eies ★",heroBubble:'"Von der Antike bis zum Pop Art — klick die Karten!"',boom:"KNACK!",footerTitle:"🎉 FROHE OSTERN! 🎉",footerText:"Jack hat einen langen Weg zurückgelegt — von den alten Ägyptern bis zu Pop-Art-Galerien. Bemal dein Ei mit Seele!",eras:[{year:"5000 v.Chr.",color:"blue",icon:"🥚",tag:"URSPRUNG",title:"Erstes Ei!",text:"Alte Ägypter, Perser und Chinesen tauschten bemalte Eier schon Jahrtausende vor Christus aus. Symbol des Frühlings und neuen Lebens!"},{year:"4. Jh.",color:"pink",icon:"✝️",tag:"CHRISTENTUM",title:"Rote Eier!",text:"Christen übernehmen die Tradition. Rot symbolisiert das Blut Christi. Die Legende besagt: Maria Magdalena brachte Eier zum Grab!"},{year:"1290",color:"lime",icon:"👑",tag:"KÖNIGLICH",title:"Eier für den König!",text:"König Eduard I. von England bestellt 450 vergoldete Eier als Geschenke für seine Höflinge. Jack wird zum Luxus!"},{year:"1883",color:"orange",icon:"💎",tag:"FABERGÉ",title:"Goldene Eier!",text:"Zar Alexander III. bestellt das erste Fabergé-Ei für die Zarin. Peter Carl Fabergé schafft 50 kaiserliche Eier — jedes verbirgt eine Überraschung!"},{year:"1960er",color:"purple",icon:"🎨",tag:"POP ART",title:"Warhol & Jack!",text:"Pop Art Revolution! Andy Warhol hätte sicher eine Serie bemalter Eier gemacht. Kräftige Farben, Halbton-Punkte — Jack im Pop-Art-Stil!"},{year:"HEUTE",color:"cyan",icon:"🌈",tag:"MODERN",title:"Jack 2.0!",text:"KI-generierte Eier, 3D-gedruckte Ostereier, NFT-Eier... Die Tradition lebt weiter — bunter als je zuvor!"}]}};
+const actionWords={en:['POW!','ZAP!','BOOM!','WOW!','BAM!','CRACK!'],sl:['POW!','ZAP!','BOOM!','WOW!','BAM!','CRACK!'],de:['POW!','ZAP!','BOOM!','WOW!','KNACK!','PENG!']};
+let currentLang='en',idx=0;
+function render(lang){const d=T[lang];document.getElementById('heroTitle').innerHTML=d.heroTitle;document.getElementById('heroSub').textContent=d.heroSub;document.getElementById('heroBubble').textContent=d.heroBubble;document.getElementById('boomWord').textContent=d.boom;document.getElementById('footerTitle').textContent=d.footerTitle;document.getElementById('footerText').textContent=d.footerText;const tl=document.getElementById('timeline');tl.innerHTML='';d.eras.forEach((e,i)=>{const div=document.createElement('div');div.className='era';div.style.animationDelay=(i*0.1+0.1)+'s';div.innerHTML=`<div class="era-year"><div class="era-line"></div><div class="year-badge">${e.year}</div></div><div class="era-content"><div class="era-card ${e.color}" onclick="showAction(event)"><div class="dots-overlay"></div><div class="jack-svg">${e.icon}</div><span class="tag">${e.tag}</span><h3>${e.title}</h3><p>${e.text}</p></div></div>`;tl.appendChild(div);});}
+function setLang(lang,btn){currentLang=lang;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render(lang);}
+function showAction(e){const words=actionWords[currentLang];const el=document.getElementById('actionWord');el.textContent=words[idx%words.length];idx++;el.style.left=e.clientX+'px';el.style.top=e.clientY+'px';el.style.opacity='1';el.style.animation='none';requestAnimationFrame(()=>{el.style.animation='splat 0.7s cubic-bezier(0.175,0.885,0.32,1.275) forwards';});setTimeout(()=>{el.style.opacity='0';el.style.animation='none';},750);}
+document.body.addEventListener('click',function(e){if(!e.target.closest('.era-card')&&!e.target.closest('.lang-btn'))showAction(e);});
+render('en');
+</script>
+</body>
+</html>
